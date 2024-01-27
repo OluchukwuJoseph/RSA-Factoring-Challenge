@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """custom_functions.py"""
 
+
 def print_factors(product):
     """Print the factors of the given product.
 
