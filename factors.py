@@ -31,7 +31,19 @@ try:
 # Handle file-related errors
 except Exception as error:
     if isinstance(error, FileNotFoundError):
-        sys.stderr.write(f"{file_path} does not exist\n")
+        sys.stderr.write(f"Error: {file_path} does not exist\n")
+        sys.exit(1)
+    elif isinstance(error, IsADirectoryError):
+        sys.stderr.write(f"Error: {file_path} is a directory, not a file\n")
+        sys.exit(1)
+    elif isinstance(error, PermissionError):
+        sys.stderr.write(f"Error: Permission denied for file {file_path}\n")
+        sys.exit(1)
+    elif isinstance(error, IOError):
+        sys.stderr.write(f"IOError: {error}\n")
+        sys.exit(1)
+    elif isinstance(error, OSError):
+        sys.stderr.write(f"IOError: {error}\n")
         sys.exit(1)
     # Handle other unknown errors
     else:
