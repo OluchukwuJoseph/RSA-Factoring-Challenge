@@ -2,7 +2,7 @@
 """custom_functions.py"""
 
 
-def print_factors(product):
+def factorize(product):
     """Print the factors of the given product.
 
         Parameters:

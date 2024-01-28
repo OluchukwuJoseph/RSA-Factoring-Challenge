@@ -25,14 +25,15 @@ try:
                 print(f"{number}=0*0")
                 continue
             # Call the function to print factors of the number
-            custom_functions.print_factors(number)
+            custom_functions.factorize(number)
+    file.close()
 
 # Handle file-related errors
-except (FileNotFoundError, FileExistsError):
-    sys.stderr.write(f"{file_path} does not exist\n")
-    sys.exit(1)
-
-# Handle other unknown errors
 except Exception as error:
-    sys.stderr.write(f"An unknown error occured\n")
-    sys.exit(1)
+    if isinstance(error, FileNotFoundError):
+        sys.stderr.write(f"{file_path} does not exist\n")
+        sys.exit(1)
+    # Handle other unknown errors
+    else:
+        sys.stderr.write(f"An unknown error occured\n")
+        sys.exit(1)
