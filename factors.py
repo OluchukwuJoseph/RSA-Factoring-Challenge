@@ -17,7 +17,7 @@ file_path = sys.argv[1]
 try:
     with open(file_path, "r") as file:
         for line in file:
-            number = int(line)
+            number = int(line.strip())
             if number == 1:
                 print(f"{number}=1*1")
                 continue
