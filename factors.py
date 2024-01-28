@@ -3,8 +3,8 @@
 
 
 import sys
-
-custom_functions = __import__('custom_functions')
+import custom_functions
+#custom_functions = __import__('custom_functions')
 
 # Check if the correct number of command-line arguments is provided
 argument_counter = len(sys.argv)
